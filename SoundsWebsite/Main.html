@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+<body>
+
+<audio id="myAudio">
+  <source src="archer_death.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<div class="wrapper">
+    <div class="center">
+        <div class="slidecontainer">
+            <input type="range" min="0" max="100" value="100" class="slider" id="myRange">
+            <p>Volume: <span id="demo"></span></p>
+          </div>
+        <div class="buttons">
+            <button onclick="playAudio()" type="button">C</button>
+            <button onclick="playAudio()" type="button">C#/Db</button>
+            <button onclick="playAudio()" type="button">D</button>
+            <button onclick="playAudio()" type="button">D#/Eb</button>
+            <button onclick="playAudio()" type="button">E</button>
+            <button onclick="playAudio()" type="button">F</button>
+            <button onclick="playAudio()" type="button">F#/Gb</button>
+            <button onclick="playAudio()" type="button">G</button>
+            <button onclick="playAudio()" type="button">G#/Ab</button>
+            <button onclick="playAudio()" type="button">A</button>
+            <button onclick="playAudio()" type="button">A#/Bb</button>
+            <button onclick="playAudio()" type="button">B</button>
+        </div>
+    </div>
+</div>
+
+<!--<script>
+var x = document.getElementById("myAudio"); 
+
+function playAudio() { 
+  x.play(); 
+} 
+
+function pauseAudio() { 
+  x.pause(); 
+} 
+</script>-->
+
+<script>
+
+var audio = new Audio()
+var plalist = new Array('discord.mp3','tom.mp3','succ.mp3')
+
+function playAudio() { 
+    var rnd = (Math.floor(Math.random()* plalist.length))
+    audio.src = (plalist[rnd])
+    audio.currentTime = 0
+  audio.play(); 
+  
+} 
+
+var slider = document.getElementById("myRange")
+var demo = document.getElementById("demo")
+slider.oninput = function(){
+    demo.innerHTML = slider.value/100
+    audio.volume = slider.value/100
+}
+
+</script>
+
+</body>
+</html>
